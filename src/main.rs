@@ -115,10 +115,10 @@ fn get_bam_stats(config: Config) -> Result<(), Error> {
             (stride, moves) = get_nt_durations(&this_record).unwrap();
             for move_duration in moves.iter() {
                 if move_duration <= &(MAX_MOVE) {
-                    qscore_hist[*move_duration] += 1
+                    move_hist[*move_duration] += 1
                 } else {
                     println!("Move duration longer than max: {}", move_duration);
-                    qscore_hist[MAX_MOVE] += 1
+                    move_hist[MAX_MOVE] += 1
                 }
 
                 let sum_moves = moves.iter().sum::<usize>();
